@@ -59,7 +59,7 @@ resource "aws_security_group" "web_sg" {
 }
 
 resource "aws_key_pair" "keypair" {
-  key_name   = "my-key"
+  key_name   = "my-key1"
   public_key = file("~/.ssh/id_rsa.pub")
 }
 
