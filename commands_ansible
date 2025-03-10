@@ -1,0 +1,45 @@
+1  $ sudo apt update
+    2  $ sudo apt install software-properties-common
+    3* $ sudo add-apt-repository --yes --updat ppa:ansible/ansible
+    4* $ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+    5  sudo apt update
+    6  sudo apt install software-properties-common
+    7  sudo add-apt-repository --yes --update ppa:ansible/ansible
+    8  sudo apt install ansible
+    9  ansible --version
+   10  etc/ansible/hosts
+   11  cd /etc/ansible/hosts
+   12  /etc/ansible/hosts
+   13  sudo /etc/ansible/hosts
+   14  cd etc/ansible
+   15  cd etc
+   16  cd /etc
+   17  ls
+   18  cd ansible
+   19  ls
+   20  cd hosts
+   21  sudo vim /etc/ansible/hosts
+   22  cat hosts
+   23  ls
+   24  vi nginx.yml
+   25  ls
+   26  vi nginx.yaml
+   27  sudo vi nginx.yml
+   28  ansible-playbook /etc/ansible/nginx_setup.yml
+   29  ansible-playbook /etc/ansible/nginx.yml
+   30  ls
+   31  ssh-keygen
+   32  cd ..
+   33  cd
+   34  cd .ssh
+   35  ls
+   36  cat id_ed25519
+   37  cat id_ed25519.pub
+   38  sudo vi authorized_keys 
+   39  cd 
+   40  cd /etc/ansible
+   41  ls
+   42  ansible-playbook /etc/ansible/nginx.yml

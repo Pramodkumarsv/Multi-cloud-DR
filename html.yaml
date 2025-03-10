@@ -1,0 +1,33 @@
+---
+- name: Update Nginx Default HTML Page
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Ensure the Nginx web root exists
+      ansible.builtin.file:
+        path: /var/www/html
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: '0755'
+
+    - name: Deploy custom index.html
+      ansible.builtin.copy:
+        content: |
+          <html>
+          <head>
+              <title>Welcome to My Nginx Server</title>
+          </head>
+          <body>
+              <h1>Hello from Ansible Deployed Nginx!</h1>
+          </body>
+          </html>
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
+
+    - name: Restart Nginx to Apply Changes
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
