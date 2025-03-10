@@ -64,7 +64,7 @@ resource "aws_key_pair" "keypair" {
 }
 
 resource "aws_instance" "app" {
-  ami             = "ami-12345678"  # Use latest Ubuntu AMI
+  ami             = "ami-04b4f1a9cf54c11d0"  # Use latest Ubuntu AMI
   instance_type   = "t2.micro"
   subnet_id       = aws_subnet.public_1.id
   security_groups = [aws_security_group.web_sg.name]
@@ -73,7 +73,7 @@ resource "aws_instance" "app" {
 }
 
 resource "aws_instance" "tools" {
-  ami             = "ami-12345678"
+  ami             = "ami-04b4f1a9cf54c11d0"
   instance_type   = "t2.micro"
   subnet_id       = aws_subnet.public_2.id
   security_groups = [aws_security_group.web_sg.name]
