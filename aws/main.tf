@@ -67,7 +67,7 @@ resource "aws_instance" "app" {
   ami             = "ami-04b4f1a9cf54c11d0"  # Use latest Ubuntu AMI
   instance_type   = "t2.micro"
   subnet_id       = aws_subnet.public_1.id
-  security_groups = [aws_security_group.web_sg.name]
+  security_groups = [aws_security_group.web_sg.id]
   key_name        = aws_key_pair.keypair.key_name
   tags = { Name = "App Machine" }
 }
@@ -76,7 +76,7 @@ resource "aws_instance" "tools" {
   ami             = "ami-04b4f1a9cf54c11d0"
   instance_type   = "t2.micro"
   subnet_id       = aws_subnet.public_2.id
-  security_groups = [aws_security_group.web_sg.name]
+  security_groups = [aws_security_group.web_sg.id]
   key_name        = aws_key_pair.keypair.key_name
   tags = { Name = "Tools Machine" }
 }
