@@ -1,0 +1,33 @@
+---
+- name: Deploy Nginx Custom HTML Pages
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Ensure Nginx is installed
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Copy index.html for AWS instance
+      ansible.builtin.copy:
+        src: /home/ubuntu/index-aws.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
+      when: inventory_hostname == "aws_machine"
+
+    - name: Copy index.html for Azure instance
+      ansible.builtin.copy:
+        src: /home/ubuntu/index-azure.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
+      when: inventory_hostname == "azure_machine"
+
+    - name: Restart Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
